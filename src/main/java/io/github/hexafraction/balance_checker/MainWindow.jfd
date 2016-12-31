@@ -1,0 +1,64 @@
+JFDML JFormDesigner: "5.2.5.0.333" Java: "1.8.0_71" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "contentPane"
+			auxiliary() {
+				"JavaCodeGenerator.variableModifiers": 0
+			}
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) ) {
+				name: "btnsPane"
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "pasteAddressesButton"
+					"label": "Add addresses..."
+					"text": "Add addresses..."
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "loadFromFileButton"
+					"text": "Load from file..."
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "clearListButton"
+					"text": "Clear list"
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "getBalancesButton"
+					"text": "Get balances!"
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "exportButton"
+					"text": "Export"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "North"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "ttl"
+				"font": new com.jformdesigner.model.SwingFont( "TextArea.font" )
+				"text": "Total: 0"
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "South"
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
+				add( new FormComponent( "javax.swing.JTable" ) {
+					name: "tbl"
+					"fillsViewportHeight": true
+					auxiliary() {
+						"JavaCodeGenerator.customCreate": true
+					}
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 533, 400 )
+		} )
+	}
+}
