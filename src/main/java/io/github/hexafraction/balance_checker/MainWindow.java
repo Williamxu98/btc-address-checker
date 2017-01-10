@@ -2,13 +2,6 @@ package io.github.hexafraction.balance_checker;
 
 import java.awt.*;
 import com.google.common.base.Joiner;
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpMethod;
-import org.apache.commons.httpclient.HttpStatus;
-import org.apache.commons.httpclient.methods.GetMethod;
-import org.apache.commons.httpclient.util.ParameterFormatter;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
@@ -20,14 +13,9 @@ import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.MalformedInputException;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 import java.util.concurrent.ExecutionException;
-
-import static java.nio.file.StandardOpenOption.TRUNCATE_EXISTING;
 
 /**
  * Created by Andrey Akhmetov on 6/26/2016.
@@ -207,7 +195,10 @@ public class MainWindow {
 
                 try (PrintWriter pw = new PrintWriter(jfc.getSelectedFile())){
                     for(Address a : dm.addresses){
-                        pw.println(a.addr+","+a.balance);
+                    	if (a.balance>0.0000001)
+                    	{
+                    		pw.println(a.addr+","+a.balance);
+                    	}
                     }
                 } catch (IOException e1) {
                     JOptionPane.showMessageDialog(contentPane, "Error writing file: " + e1.getClass() + ": " + e1.getMessage());
